@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        
+        .topnav h1.cm {
+            display: flex;
+            justify-content: left;
+            color: white;
+            text-align: left;
+
+        }
+        .topnav {
+            display: flex;
+            background-color: blue;
+            
+            justify-content: space-between;
+            padding-right: 12px;
+            align-items: center;
+        }
+        .nav-items {
+            width: 50%;
+            display: flex;
+            justify-content: right;
+        }
+        .nav-items a{
+            color: white;
+            padding: 12px;
+        }
+        .logo h1{
+            color: white;
+            padding-left: 25px;
+        }
+        .fakeimage {
+            background-color: bisque;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .cm {
+            background-color: white;
+            display:flex;
+            padding-top: 600px;
+            
+            background-image: url('docker images');
+            background-size:100%100%;
+            background-attachment:fixed;
+        }
+
+        .pro a{
+            color: white;
+            padding-left: 0%;
+        }
+        img{
+            border-radius: 7px;
+        }
+        .logo h5{
+            color: white;   
+        }
+    </style>
+</head>
+<body >
+    
+    <div  class="topnav">
+       <div class="logo"><h1>Hotel.Com</h1>
+          
+    </div>
+       
+       <div class="nav-items">
+        <a href="">Home</a>
+       <a href="{% url 'hotel:signin' %}">Sign Up</a>
+       <a href="{% url 'hotel:login' %}">Sign In</a>
+      
+       </div>
+    </div>
+
+    {% if messages %}
+    {% for message in messages %}
+    
+    {{message}}
+    {{request.user.first_name}}
+    {% endfor %}
+    {% endif %}
+    <div  class="cm" style="background-image: url('../static/image/hotel.png.jpg');">
+        <div class="fakeimage" style="height: 60px;column-width: auto;">
+            <h1>Book</h1>
+        </div>
+    </div>
+</body>
+</html>

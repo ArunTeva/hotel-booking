@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar{
+            display: flex;
+            background-color: blue;
+            color: white;
+            
+
+
+        }
+        .navbar h1{
+            display: block;
+           
+        }
+        .nav-items a{
+            margin: 1200px; 
+            color: white;
+           
+            align-items: center;
+            padding-top: 50;
+            border-radius: 25px;
+
+        }
+        .nav-items {
+            display: flex;
+            border-radius: 25px;
+            align-items: center;
+            
+        }
+        
+        #log{
+            padding-top: 50px;
+            margin-left: 1050px;
+            
+        }
+        .cm {
+            background-color: white;
+            display:flex;
+            padding-top: 600px;
+            
+            background-image: url('docker images');
+            background-size:100%100%;
+            background-attachment:fixed;
+        }
+        img{
+            border-radius: 25px;
+            
+        }
+      
+        
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <h1>Hotel.com</h1>
+        <h3>{{qr.first_name}}</h3>
+        </div>
+        
+        <div class="nav-items"  >
+           
+           <div class="profile">
+            <a href="{% url 'hotel:profile' user.id %}" id="pro">
+                
+                <img src="{{qr.profile_image.url}}" alt="Profile" height="50px"  width="50px"></a>
+           </div>
+            
+                
+                      <!-- src="{% static 'image/profile.jpg' %}" alt="Profile" height="25px"  -->
+        </div>
+    </div>
+
+    
+        
+    <div  class="cm" style="background-image: url('../static/image/hotel.png.jpg');">
+        
+        <form action="{% url 'hotel:search' %}" method="get">
+                <input type="search" name="search" id="search" placeholder="search city">
+                <input type="submit" value="search">
+        </form>
+
+        <div>
+            {% for search in object_list  %}
+    
+                {{search.name}} <br>
+                {{search.city}} <br>
+    
+            {% endfor %}
+        </div>
+        
+        
+    </div>
+     
+    
+   
+</body>
+</html>
